@@ -1,0 +1,75 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Twitch App</title>
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
+    <script src="js/vendor/modernizr.js"></script>
+  </head>
+  <body>
+
+
+    <div id="main-menu-wrapper">
+
+      <div id="all-on-off-selector-wrapper">
+
+        <div id="all" class="selector-selected">
+          <h1>All</h1>
+        </div>
+
+        <span class="bar"></span>
+
+        <div id="online">
+          <h1>Online</h1>
+        </div>
+
+        <span class="bar"></span>
+
+        <div id="offline">
+          <h1>Offline</h1>
+        </div>
+
+      </div><!-- end all-on-off-selector-wrapper -->
+
+      <div id="search-and-add-wrapper">
+        <div id="search-box">
+          <div class="ui-widget">
+            <label for="streamer-search">Search:</label>
+            <input type="text" id="streamer-search">
+          </div>
+        </div>
+        <div id="add-button">
+          <h2>+</h2>
+        </div>
+      </div><!-- end search-and-end wrapper -->
+
+      <div class="horizontal-bar"></div>
+
+
+      <div id="streamer-list">
+        <ul>
+          <li><h3 style="text-align:center;margin-left:-25px;">Search for Twitch.tv streamers!</h3></li>
+        </ul>
+
+      </div>
+
+    </div><!-- end main-menu-wrapper -->
+
+
+    <div id="blast">
+      <h1>Streamer Added</h1>
+    </div>
+
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="https://ttv-api.s3.amazonaws.com/twitch.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/interface.js"></script>
+    <script src="js/update.js"></script>
+  </body>
+</html>

@@ -1,0 +1,168 @@
+body {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  background-color: lightgrey;
+}
+
+#main-menu-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 0 20px #777;
+  margin-top: 10vh;
+  background-color: white;
+}
+
+#all-on-off-selector-wrapper {
+  display: flex;
+  justify-content: space-around;
+  background-color: #5C1A91;
+}
+
+#all-on-off-selector-wrapper #all {
+  padding-left: 10px;
+}
+
+#all-on-off-selector-wrapper #online {
+}
+
+#all-on-off-selector-wrapper #offline {
+  padding-right: 10px;
+}
+
+#all-on-off-selector-wrapper .bar {
+  border-right: 1px solid #471470;
+  margin: 0 15px 0 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+}
+
+#all-on-off-selector-wrapper div {
+  margin: 10px 20px;
+}
+
+#all-on-off-selector-wrapper div h1 {
+  font-family: 'Source Sans Pro', sans-serif;
+  margin:0;
+  color: white;
+}
+
+#search-and-add-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+#search-and-add-wrapper div h2{
+  font-family: 'Source Sans Pro', sans-serif;
+  margin: 20px 30px 0 10px;
+}
+
+#search-and-add-wrapper #search-box {
+  margin: 20px 10px 20px 20px;
+}
+
+#search-and-add-wrapper #search-box div label {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.2rem;
+}
+
+#search-and-add-wrapper #search-box div input[type="text"] {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.2rem;
+}
+
+#all:hover, #online:hover, #offline:hover {
+  text-shadow: 6px 6px 2px #000000;
+}
+
+.selector-selected {
+  text-shadow: 6px 6px 2px #000000;
+}
+
+.horizontal-bar {
+border-top: 1px solid lightgrey;
+width: 100%;
+}
+
+#streamer-list ul {
+  text-align: left;
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+#streamer-list .streamer {
+  display: flex;
+}
+
+#streamer-list .streamer-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+#streamer-list .streamer-info h1, #streamer-list .streamer-info h3,  #streamer-list ul li h3{
+  font-family: 'Source Sans Pro', sans-serif;
+  margin: 0 0 0 15px;
+}
+
+#streamer-list .streamer .online{
+  height: 75px;
+  width: 75px;
+  border: 5px solid limegreen;
+  border-radius: 50px;
+  box-shadow: 0 5px 20px #CCC;
+}
+
+#streamer-list .streamer .offline{
+  height: 75px;
+  width: 75px;
+  border: 5px solid grey;
+  border-radius: 50px;
+  box-shadow: 0 5px 20px #CCC;
+}
+
+#streamer-list ul li {
+  margin-top: 15px;
+}
+
+
+#blast {
+  position: absolute;
+  text-align: center;
+  left: 0;
+  right: 0;
+  top: 50px;
+  margin: 0 auto;
+  display: none;
+}
+
+#blast h1 {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 80px;
+  color: #333;
+  -moz-animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  -ms-animation-duration: 1s;
+}
+
+.close-x {
+  margin-left: auto;
+  margin-top: -10px;
+  margin-right: 25px;
+}
+
+.close-x:hover {
+  cursor:pointer;
+}
+
+.close-x p {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 20px;
+}
+
+#add-button:hover {
+  cursor:pointer;
+}
