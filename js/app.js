@@ -94,7 +94,13 @@ function addStreamer(newStreamer){
           newStreamerObject.StreamerHTML += '<a href="https://www.twitch.tv/' + newStreamer + '"><img class="offline" src="https://assets.digital.cabinet-office.gov.uk/government/assets/blank-person-3102300fb523fc3b2fa629bc79f1df9f.png"></a>';
           newStreamerObject.StreamerHTML += '<div class="streamer-info"><h1 class="sn">' + newStreamer + '</h1><h3>Offline</h3></div><div class="close-x"><p>X</p></div></div></li>';
           OffSearchArray.push(newStreamer);
+          newStreamerObject.stream = null;
           newStreamerObject.viewers = undefined;
+
+          streamers[idNum] = newStreamerObject;
+          AllSearchArray.push(newStreamer);
+
+          var $thing = $(".selector-selected").prop('id');
           masterSelector($thing);
 
         } else {
@@ -106,32 +112,42 @@ function addStreamer(newStreamer){
             if(success2.stream == null){
               newStreamerObject.StreamerHTML += '<a href="http://www.twitch.tv/' + newStreamerObject.name + '"><img class="offline" src="' + newStreamerObject.logo + '"></a>';
               newStreamerObject.StreamerHTML += '<div class="streamer-info"><h1 class="sn">' + newStreamerObject.name + '</h1><h3>Offline</h3></div><div class="close-x"><p>X</p></div></div></li>';
-              OffSearchArray.push(newStreamer);
+              newStreamerObject.stream = null;
               newStreamerObject.viewers = undefined;
+
+              OffSearchArray.push(newStreamer);
+
+              streamers[idNum] = newStreamerObject;
+              AllSearchArray.push(newStreamer);
+
+              var $thing = $(".selector-selected").prop('id');
               masterSelector($thing);
 
             } else {
+              newStreamerObject.stream = success2.stream
+              newStreamerObject.viewers = success2.stream.viewers;
               newStreamerObject.StreamerHTML += '<a href="http://www.twitch.tv/' + newStreamerObject.name + '"><img class="online" src="' + newStreamerObject.logo + '"></a>';
-              newStreamerObject.StreamerHTML += '<div class="streamer-info"><h1 class="sn">' + newStreamerObject.name + '</h1><h3>' + success2.stream.game + '</h3></div><div class="close-x"><p>X</p></div></div></li>';
+              newStreamerObject.StreamerHTML += '<div class="streamer-info"><h1 class="sn">' + newStreamerObject.name + '</h1><h3>' + success2.stream.game + '</h3><h5>' + newStreamerObject.viewers + ' viewers</h5></div><div class="close-x"><p>X</p></div></div></li>';
+
               OnSearchArray.push(newStreamer);
-              newStreamerObject.viewers = success.viewers;
+
+              streamers[idNum] = newStreamerObject;
+              AllSearchArray.push(newStreamer);
+
+              var $thing = $(".selector-selected").prop('id');
               masterSelector($thing);
             }
-
-            newStreamerObject.stream = success2.stream;
 
           }); //finish second API call
 
         } //finish else above second API call
 
-        streamers[idNum] = newStreamerObject;
 
-        AllSearchArray.push(newStreamer);
 
         $("#blast").css("display", "block");
         $("#blast h1").addClass("animated zoomIn");
 
-        var $thing = $(".selector-selected").prop('id');
+
 
         console.log($("#blast h1").attr("class"));
 

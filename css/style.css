@@ -2,14 +2,14 @@ body {
   display: flex;
   text-align: center;
   justify-content: center;
-  background-color: lightgrey;
+  background-color: grey;
 }
 
 #main-menu-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  box-shadow: 0 0 20px #777;
+  box-shadow: 0 0 20px #333;
   margin-top: 10vh;
   background-color: white;
 }
@@ -102,9 +102,14 @@ width: 100%;
   justify-content: flex-start;
 }
 
-#streamer-list .streamer-info h1, #streamer-list .streamer-info h3,  #streamer-list ul li h3{
+#streamer-list .streamer-info h1, #streamer-list .streamer-info h3, #streamer-list ul li h3{
   font-family: 'Source Sans Pro', sans-serif;
   margin: 0 0 0 15px;
+}
+
+#streamer-list .streamer-info h5 {
+  font-family: 'Source Sans Pro', sans-serif;
+  margin: 5px 0 0 15px;
 }
 
 #streamer-list .streamer .online{

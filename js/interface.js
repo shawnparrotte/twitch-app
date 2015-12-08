@@ -24,7 +24,6 @@ $(document).keypress(function(e) {
 
 $("#online").click(function(){
   masterSelector($(this).prop('id'));
-  console.log($(this).prop('id'));
 });
 
 $("#offline").click(function(){
@@ -34,11 +33,9 @@ $("#offline").click(function(){
 
 $("#all").click(function(){
   masterSelector($(this).prop('id'));
-  console.log($(this).prop('id'));
 });
 
 function masterSelector($thing){
-
 
 
   var streamerArray = Object.getOwnPropertyNames(streamers);
@@ -50,26 +47,35 @@ function masterSelector($thing){
   if($thing == "all") {
     CurrentArray = [];
     CurrentArray = AllSearchArray;
-    for(var i in streamerArray){
-      $("#streamer-list ul").append(streamers[streamerArray[i]].StreamerHTML);
+
+    console.log(streamers);
+    for(var i in streamers){
+
+      var temp = streamers[i];
+      console.log(temp.StreamerHTML);
+      $("#streamer-list ul").append(temp.StreamerHTML);
     }
   } else if ($thing == "offline"){
     CurrentArray = [];
     CurrentArray = OffSearchArray;
-    for(var i in streamerArray){
-      if(streamers[streamerArray[i]].stream == null){
-        $("#streamer-list ul").append(streamers[streamerArray[i]].StreamerHTML);
+    for(var i in streamers){
+
+      var temp = streamers[i]
+      if(temp.stream == null){
+        $("#streamer-list ul").append(temp.StreamerHTML);
       }
     }
   } else if($thing == "online") {
     CurrentArray = [];
     CurrentArray = OnSearchArray;
-    for(var i in streamerArray){
+    for(var i in streamers) {
 
-      console.log(streamers[streamerArray[i]].viewers);
+      var temp = streamers[i]
+      console.log(temp.stream);
+      console.log(temp.viewers);
 
-      if(streamers[streamerArray[i]].stream !== null && streamers[streamerArray[i]].status !== null){
-        $("#streamer-list ul").append(streamers[streamerArray[i]].StreamerHTML);
+      if(temp.stream !== null && temp.viewers !== undefined){
+      $("#streamer-list ul").append(temp.StreamerHTML);
       }
     }
   }

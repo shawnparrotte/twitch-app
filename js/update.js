@@ -42,6 +42,8 @@ function updateStreamer(nameCache, idCache, logoCache){
         streamers[idCache].StreamerHTML += '<a href="https://www.twitch.tv/' + nameCache + '"><img class="offline" src="https://assets.digital.cabinet-office.gov.uk/government/assets/blank-person-3102300fb523fc3b2fa629bc79f1df9f.png"></a>';
         streamers[idCache].StreamerHTML += '<div class="streamer-info"><h1 class="sn">' + nameCache + '</h1><h3>Offline</h3></div><div class="close-x"><p>X</p></div></div></li>';
         OffSearchArray.push(nameCache);
+        
+        var $thing = $(".selector-selected").prop('id');
         masterSelector($thing);
       } else {
 
@@ -50,14 +52,22 @@ function updateStreamer(nameCache, idCache, logoCache){
           if(success2.stream == null){
             streamers[idCache].StreamerHTML += '<a href="http://www.twitch.tv/' + nameCache + '"><img class="offline" src="' + logoCache + '"></a>';
             streamers[idCache].StreamerHTML += '<div class="streamer-info"><h1 class="sn">' + nameCache + '</h1><h3>Offline</h3></div><div class="close-x"><p>X</p></div></div></li>';
+            streamers[idCache].stream = null;
+            streamers[idCache].viewers = undefined;
             OffSearchArray.push(nameCache);
+
+            var $thing = $(".selector-selected").prop('id');
             masterSelector($thing);
 
           } else {
+            streamers[idCache].stream = success2.stream;
+            streamers[idCache].viewers = success2.stream.viewers;
             streamers[idCache].StreamerHTML += '<a href="http://www.twitch.tv/' + nameCache + '"><img class="online" src="' + logoCache + '"></a>';
-            streamers[idCache].StreamerHTML += '<div class="streamer-info"><h1 class="sn">' + nameCache + '</h1><h3>' + success2.stream.game + '</h3></div><div class="close-x"><p>X</p></div></div></li>';
+            streamers[idCache].StreamerHTML += '<div class="streamer-info"><h1 class="sn">' + nameCache + '</h1><h3>' + success2.stream.game + '</h3><h5>' + success2.stream.viewers + ' viewers</h5></div><div class="close-x"><p>X</p></div></div></li>';
+
             OnSearchArray.push(nameCache);
-            
+
+            var $thing = $(".selector-selected").prop('id');
             masterSelector($thing);
           }
         }); //finish second API call
@@ -65,7 +75,6 @@ function updateStreamer(nameCache, idCache, logoCache){
 
       AllSearchArray.push(nameCache);
 
-      var $thing = $(".selector-selected").prop('id');
 
     } //finsih 2.2 else
   }); //finish first API call
