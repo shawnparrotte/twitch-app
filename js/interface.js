@@ -9,6 +9,7 @@ $("#add-button").click(function(){
   $("#add-button h2").addClass("animated tada");
   var streamerInput = $("#streamer-search").val();
   addStreamer(streamerInput);
+  $("#streamer-search").val("");
 })
 
 $("#add-button h2").on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
@@ -19,6 +20,7 @@ $(document).keypress(function(e) {
   if(e.which == 13) {
     var streamerInput = $("#streamer-search").val();
     addStreamer(streamerInput);
+    $("#streamer-search").val("");
   }
 });
 
@@ -48,11 +50,9 @@ function masterSelector($thing){
     CurrentArray = [];
     CurrentArray = AllSearchArray;
 
-    console.log(streamers);
     for(var i in streamers){
 
       var temp = streamers[i];
-      console.log(temp.StreamerHTML);
       $("#streamer-list ul").append(temp.StreamerHTML);
     }
   } else if ($thing == "offline"){
@@ -127,6 +127,8 @@ $("#streamer-list").on("click", ".close-x", function() {
   if(AllSearchArray.length == 0){
     $("#streamer-list ul").append('<li><h3 style="text-align:center;margin-left:-25px;">Search for Twitch.tv streamers!</h3></li>');
   }
+
+  localStorage.twitchStreamers = AllSearchArray;
 
   $sel.remove();
 

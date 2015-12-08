@@ -21,7 +21,6 @@ function updateStreamerInfo(){
 
 function updateStreamer(nameCache, idCache, logoCache){
 
-
   //***2*** create new streamer object
 
   //2.1 first we'll check to see if the channel even exists
@@ -42,7 +41,7 @@ function updateStreamer(nameCache, idCache, logoCache){
         streamers[idCache].StreamerHTML += '<a href="https://www.twitch.tv/' + nameCache + '"><img class="offline" src="https://assets.digital.cabinet-office.gov.uk/government/assets/blank-person-3102300fb523fc3b2fa629bc79f1df9f.png"></a>';
         streamers[idCache].StreamerHTML += '<div class="streamer-info"><h1 class="sn">' + nameCache + '</h1><h3>Offline</h3></div><div class="close-x"><p>X</p></div></div></li>';
         OffSearchArray.push(nameCache);
-        
+
         var $thing = $(".selector-selected").prop('id');
         masterSelector($thing);
       } else {
